@@ -13,6 +13,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
+import androidx.recyclerview.widget.DividerItemDecoration;
+
 public class CustomDialog extends Dialog implements android.view.View.OnClickListener {
     public Activity activity;
     public Button btnYes, btnNo;
@@ -76,8 +80,22 @@ public class CustomDialog extends Dialog implements android.view.View.OnClickLis
         TextView t_titolo = findViewById(R.id.txt_titolo);
         TextView t_messaggio = findViewById(R.id.txt_messaggio);
         ImageView t_icon = findViewById(R.id.img_icon);
+        View divisore = findViewById(R.id.divider);
 
-        btnNo.setText(button_sx);
+        if(button_sx.equals("")) {
+            btnNo.setText("");
+            btnNo.setVisibility(View.INVISIBLE);
+
+            ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) divisore.getLayoutParams();
+            params.horizontalBias = 0.0f; // here is one modification for example. modify anything else you want :)
+            divisore.setLayoutParams(params); // request the view to use the new modified params
+
+        }else{
+            btnNo.setText(button_sx);
+            btnNo.setVisibility(View.VISIBLE);
+        }
+
+
         btnYes.setText(button_dx);
         t_titolo.setText(title);
         t_messaggio.setText(message);

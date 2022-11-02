@@ -148,7 +148,7 @@ public class MainActivity extends AppCompatActivity  {
 
                 customDialog = new CustomDialog(MainActivity.this,
                         4,
-                        "Cancella",
+                        "",
                         "OK",
                         getDrawable(R.color.colorPrimaryDark1),
                         getDrawable(R.drawable.ic_baseline_done_outline_24),
