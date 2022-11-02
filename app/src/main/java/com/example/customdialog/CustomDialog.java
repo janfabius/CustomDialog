@@ -23,11 +23,12 @@ public class CustomDialog extends Dialog implements android.view.View.OnClickLis
     public Drawable icon;
     public String title;
     public String message;
+    public int model;
 
 
 
 
-    public CustomDialog(Activity activity, String textButtonSx, String textButtonDx, Drawable background, Drawable icona, String titolo, String messaggio) {
+    public CustomDialog(Activity activity, int template,String textButtonSx, String textButtonDx, Drawable background, Drawable icona, String titolo, String messaggio) {
 
         super(activity);
         this.activity = activity;
@@ -37,6 +38,7 @@ public class CustomDialog extends Dialog implements android.view.View.OnClickLis
         this.icon = icona;
         this.title = titolo;
         this.message = messaggio;
+        this.model = template;
 
     }
 
@@ -45,6 +47,14 @@ public class CustomDialog extends Dialog implements android.view.View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+
+        switch (model){
+            case 1: setContentView(R.layout.custom_dialog_layout);
+                break;
+            case 2: setContentView(R.layout.custom_dialog_layout);
+                break;
+        }
         setContentView(R.layout.custom_dialog_layout);
 
         getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
