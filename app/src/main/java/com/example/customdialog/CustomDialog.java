@@ -26,6 +26,8 @@ public class CustomDialog extends Dialog implements android.view.View.OnClickLis
 
     public boolean risposta;
 
+
+
     public boolean getRisposta() {
         return risposta;
     }

@@ -19,7 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
 
 
     Context mContext = this;
@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
    // private Dialog dialog;
     private Button ShowDialog;
 
+    private CustomDialog customDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 //                        });
 //
 
-                CustomDialog customDialog = new CustomDialog(MainActivity.this,
+                customDialog = new CustomDialog(MainActivity.this,
                         "Cancella",
                         "OK",
                         getDrawable(R.color.colorPrimaryDark1),
