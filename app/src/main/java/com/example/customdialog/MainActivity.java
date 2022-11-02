@@ -164,13 +164,16 @@ public class MainActivity extends AppCompatActivity  {
                         customDialog.dismiss();
                     }
                 });
-                customDialog.findViewById(R.id.btn_cancel).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Toast.makeText(mContext,"eseguo risposta cancella",Toast.LENGTH_SHORT).show();
-                        customDialog.dismiss();
-                    }
-                });
+
+
+                // posso anche non scrivere la chiamata del pulsante visto che il tasto è disabilitato
+//                customDialog.findViewById(R.id.btn_cancel).setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        Toast.makeText(mContext,"eseguo risposta cancella",Toast.LENGTH_SHORT).show();
+//                        customDialog.dismiss();
+//                    }
+//                });
 
             }//onClick
         });
