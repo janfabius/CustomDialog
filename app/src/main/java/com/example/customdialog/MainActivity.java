@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -54,15 +56,36 @@ public class MainActivity extends AppCompatActivity {
 //                }
 
 
-                Utils.alertDlg(mContext, "Confirm", "Delete the file?", "Yes", null, "Cancel",
-                        (DialogInterface dialog, int which) -> {
-                            if(which == Utils.BTN_POS)
-                                Toast.makeText(getApplicationContext(),"eseguo risposta ok",Toast.LENGTH_SHORT).show();
-                        });
-            }
+//                Utils.alertDlg(mContext, "Confirm", "Delete the file?", "Yes", null, "Cancel",
+//                        (DialogInterface dialog, int which) -> {
+//                            if(which == Utils.BTN_POS)
+//                                Toast.makeText(getApplicationContext(),"eseguo risposta ok",Toast.LENGTH_SHORT).show();
+//                        });
+//
+
+                CustomDialog customDialog = new CustomDialog(MainActivity.this, "Cancella", "OK",
+                        getDrawable(R.color.colorPrimaryDark1),
+                        getDrawable(R.drawable.ic_baseline_done_outline_24),
+                        "Success",
+                        "messaggio da scrivere qui bla bla,b,,ikffnnf\nriga a capo.\nciao?");
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    customDialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.custom_dialog_background));
+                }
+                customDialog.show();
 
 
-            
+                Log.i("FAB0211","getRisposta->" + customDialog.getRisposta());
+
+                if(customDialog.getRisposta()){
+                    Toast.makeText(getApplicationContext(),"eseguo risposta ok",Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(mContext,"eseguo risposta cancella",Toast.LENGTH_SHORT).show();
+                }
+
+
+            }//onClick
+
+
         });
 
 

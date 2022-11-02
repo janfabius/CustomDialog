@@ -21,11 +21,11 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="16dp"
-            android:background="@color/colorPrimaryDark1"
+            android:background="@color/colorAccent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_baseline_done_outline_24" />
+            app:srcCompat="@drawable/ic_launcher_foreground" />
 
         <Button
             android:id="@+id/btn_cancel"
