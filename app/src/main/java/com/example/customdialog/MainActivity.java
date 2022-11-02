@@ -41,28 +41,6 @@ public class MainActivity extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
 
-//                boolean ricevi;
-//                ricevi = showCustomDialog(mContext, "Cancella", "OK",
-//                        getDrawable(R.color.colorPrimaryDark1),
-//                        getDrawable(R.drawable.ic_baseline_done_outline_24),
-//                        "Success",
-//                        "messaggio da scrivere qui bla bla,b,,ikffnnf\nriga a capo.\nciao?");
-//
-//                Log.i("FAB0211","ricevi->" + ricevi);
-//
-//                if(ricevi){
-//                    Toast.makeText(getApplicationContext(),"eseguo risposta ok",Toast.LENGTH_SHORT).show();
-//                }else{
-//                    Toast.makeText(mContext,"eseguo risposta cancella",Toast.LENGTH_SHORT).show();
-//                }
-
-
-//                Utils.alertDlg(mContext, "Confirm", "Delete the file?", "Yes", null, "Cancel",
-//                        (DialogInterface dialog, int which) -> {
-//                            if(which == Utils.BTN_POS)
-//                                Toast.makeText(getApplicationContext(),"eseguo risposta ok",Toast.LENGTH_SHORT).show();
-//                        });
-//
 
                 customDialog = new CustomDialog(MainActivity.this,
                         "Cancella",
@@ -74,14 +52,25 @@ public class MainActivity extends AppCompatActivity  {
                 customDialog.show();
 
 
+                // gestione del Click
+                customDialog.findViewById(R.id.btn_okay).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(getApplicationContext(),"eseguo risposta ok",Toast.LENGTH_SHORT).show();
+                        customDialog.dismiss();
+                    }
+                });
 
-                Log.i("FAB0211","getRisposta->" + customDialog.getRisposta());
+                customDialog.findViewById(R.id.btn_cancel).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(mContext,"eseguo risposta cancella",Toast.LENGTH_SHORT).show();
+                        customDialog.dismiss();
+                    }
+                });
 
-                if(customDialog.getRisposta()){
-                    Toast.makeText(getApplicationContext(),"eseguo risposta ok",Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(mContext,"eseguo risposta cancella",Toast.LENGTH_SHORT).show();
-                }
+
+
 
 
 

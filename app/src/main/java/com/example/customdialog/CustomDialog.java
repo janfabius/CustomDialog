@@ -24,17 +24,6 @@ public class CustomDialog extends Dialog implements android.view.View.OnClickLis
     public String title;
     public String message;
 
-    public boolean risposta;
-
-
-
-    public boolean getRisposta() {
-        return risposta;
-    }
-
-    public void setRisposta(boolean risposta) {
-        this.risposta = risposta;
-    }
 
 
 
@@ -42,15 +31,14 @@ public class CustomDialog extends Dialog implements android.view.View.OnClickLis
 
         super(activity);
         this.activity = activity;
-            this.button_sx = textButtonSx;
-            this.button_dx = textButtonDx;
-            this.backgr = background;
-            this.icon = icona;
-            this.title = titolo;
-            this.message = messaggio;
+        this.button_sx = textButtonSx;
+        this.button_dx = textButtonDx;
+        this.backgr = background;
+        this.icon = icona;
+        this.title = titolo;
+        this.message = messaggio;
 
     }
-
 
 
     @Override
@@ -89,10 +77,10 @@ public class CustomDialog extends Dialog implements android.view.View.OnClickLis
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_okay:
-                    setRisposta(true);
+
                 break;
             case R.id.btn_cancel:
-                    setRisposta(false);
+
                 break;
 
             default:
@@ -100,6 +88,7 @@ public class CustomDialog extends Dialog implements android.view.View.OnClickLis
         }
         dismiss();
     }
+
 
 
 
