@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity  {
 
                 customDialog = new CustomDialog(MainActivity.this,
                         1,
-                        "Cancella",
+                        "",
                         "OK",
                         getDrawable(R.color.colorPrimaryDark1),
                         getDrawable(R.drawable.ic_baseline_done_outline_24),
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity  {
                         2,
                         "Cancella",
                         "OK",
-                        getDrawable(R.color.colorPrimaryDark1),
+                        getDrawable(R.drawable.round_outline),
                         getDrawable(R.drawable.ic_baseline_done_outline_24),
                         "Success",
                         "messaggio da scrivere qui bla bla,b,,ikffnnf\nriga a capo.\nciao?");
