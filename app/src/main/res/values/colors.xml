@@ -7,4 +7,9 @@
     <color name="colorPrimaryDark1">#FF018786</color>
     <color name="colorAccent1">#FF000000</color>
     <color name="colorPrimary2">#FFFFFFFF</color>
+
+    <color name="colorButtonDialogOk">#00796B</color>
+    <color name="colorButtonDialogCancel">#00796B</color>
+
+
 </resources>
