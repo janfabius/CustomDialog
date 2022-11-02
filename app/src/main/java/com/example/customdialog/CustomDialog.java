@@ -54,6 +54,8 @@ public class CustomDialog extends Dialog implements android.view.View.OnClickLis
                 break;
             case 2: setContentView(R.layout.custom_dialog_layout_2);
                 break;
+            case 3: setContentView(R.layout.custom_dialog_layout_3);
+                break;
         }
         //setContentView(R.layout.custom_dialog_layout);
 

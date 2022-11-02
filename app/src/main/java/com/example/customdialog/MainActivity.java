@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity  {
     Context mContext = this;
 
    // private Dialog dialog;
-    private Button ShowDialog;
+    private Button ShowDialog1,ShowDialog2,ShowDialog3;
 
     private CustomDialog customDialog;
 
@@ -35,12 +35,47 @@ public class MainActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_main);
 
 
-        ShowDialog = findViewById(R.id.dialog_btn);
+        ShowDialog1 = findViewById(R.id.dialog_btn1);
+        ShowDialog2 = findViewById(R.id.dialog_btn2);
+        ShowDialog3 = findViewById(R.id.dialog_btn3);
 
-        ShowDialog.setOnClickListener(new View.OnClickListener() {
+        ShowDialog1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                customDialog = new CustomDialog(MainActivity.this,
+                        1,
+                        "Cancella",
+                        "OK",
+                        getDrawable(R.color.colorPrimaryDark1),
+                        getDrawable(R.drawable.ic_baseline_done_outline_24),
+                        "Success",
+                        "messaggio da scrivere qui bla bla,b,,ikffnnf\nriga a capo.\nciao?");
+                customDialog.show();
+
+                // gestione del Click
+                customDialog.findViewById(R.id.btn_okay).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(getApplicationContext(),"eseguo risposta ok",Toast.LENGTH_SHORT).show();
+                        customDialog.dismiss();
+                    }
+                });
+                customDialog.findViewById(R.id.btn_cancel).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(mContext,"eseguo risposta cancella",Toast.LENGTH_SHORT).show();
+                        customDialog.dismiss();
+                    }
+                });
+
+            }//onClick
+        });
+
+
+        ShowDialog2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
                 customDialog = new CustomDialog(MainActivity.this,
                         2,
@@ -52,6 +87,39 @@ public class MainActivity extends AppCompatActivity  {
                         "messaggio da scrivere qui bla bla,b,,ikffnnf\nriga a capo.\nciao?");
                 customDialog.show();
 
+                // gestione del Click
+                customDialog.findViewById(R.id.btn_okay).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(getApplicationContext(),"eseguo risposta ok",Toast.LENGTH_SHORT).show();
+                        customDialog.dismiss();
+                    }
+                });
+                customDialog.findViewById(R.id.btn_cancel).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(mContext,"eseguo risposta cancella",Toast.LENGTH_SHORT).show();
+                        customDialog.dismiss();
+                    }
+                });
+
+            }//onClick
+        });
+
+
+        ShowDialog3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                customDialog = new CustomDialog(MainActivity.this,
+                        3,
+                        "Cancella",
+                        "OK",
+                        getDrawable(R.color.colorPrimaryDark1),
+                        getDrawable(R.drawable.ic_baseline_done_outline_24),
+                        "Success",
+                        "messaggio da scrivere qui bla bla,b,,ikffnnf\nriga a capo.\nciao?");
+                customDialog.show();
 
                 // gestione del Click
                 customDialog.findViewById(R.id.btn_okay).setOnClickListener(new View.OnClickListener() {
@@ -61,7 +129,6 @@ public class MainActivity extends AppCompatActivity  {
                         customDialog.dismiss();
                     }
                 });
-
                 customDialog.findViewById(R.id.btn_cancel).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -70,15 +137,12 @@ public class MainActivity extends AppCompatActivity  {
                     }
                 });
 
-
-
-
-
-
-
             }//onClick
-
         });
+
+
+
+
 
 
 
@@ -86,71 +150,4 @@ public class MainActivity extends AppCompatActivity  {
 
 
     }
-
-
-
-    boolean RISPOSTA;
-    private boolean showCustomDialog(Context mContext, String textButtonSx, String textButtonDx, Drawable background, Drawable icona, String titolo, String messaggio) {
-
-        Dialog dialog;
-
-        //Create the Dialog here
-        dialog = new Dialog(mContext);
-        dialog.setContentView(R.layout.custom_dialog_layout);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.custom_dialog_background));
-        }
-        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        dialog.setCancelable(true); //Optional
-        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation; //Setting the animations to dialog
-
-        Button Okay = dialog.findViewById(R.id.btn_okay);
-        Button Cancel = dialog.findViewById(R.id.btn_cancel);
-        TextView t_titolo = dialog.findViewById(R.id.txt_titolo);
-        TextView t_messaggio = dialog.findViewById(R.id.txt_messaggio);
-        ImageView icon = dialog.findViewById(R.id.img_icon);
-
-        Cancel.setText(textButtonSx);
-        Okay.setText(textButtonDx);
-        t_titolo.setText(titolo);
-        t_messaggio.setText(messaggio);
-        icon.setBackground(background);
-        icon.setImageDrawable(icona);
-
-        dialog.show();
-
-        Okay.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                dialog.dismiss();
-                RISPOSTA = true;
-            }
-
-
-
-
-        });
-
-        Cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                dialog.dismiss();
-                RISPOSTA = false;
-            }
-
-
-        });
-
-
-
-        return RISPOSTA;
-
-    }
-
-
-
-
 }
