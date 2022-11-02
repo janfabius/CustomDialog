@@ -52,10 +52,10 @@ public class CustomDialog extends Dialog implements android.view.View.OnClickLis
         switch (model){
             case 1: setContentView(R.layout.custom_dialog_layout);
                 break;
-            case 2: setContentView(R.layout.custom_dialog_layout);
+            case 2: setContentView(R.layout.custom_dialog_layout_2);
                 break;
         }
-        setContentView(R.layout.custom_dialog_layout);
+        //setContentView(R.layout.custom_dialog_layout);
 
         getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         setCancelable(false); //Optional
