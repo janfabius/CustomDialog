@@ -60,6 +60,10 @@ public class CustomDialog extends Dialog implements android.view.View.OnClickLis
         getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         setCancelable(false); //Optional
         getWindow().getAttributes().windowAnimations = R.style.DialogAnimation; //Setting the animations to dialog
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setBackgroundDrawable(getContext().getDrawable(R.drawable.custom_dialog_background));
+        }
+
         btnYes = (Button) findViewById(R.id.btn_okay);
         btnNo = (Button) findViewById(R.id.btn_cancel);
         btnYes.setOnClickListener(this);
@@ -77,19 +81,18 @@ public class CustomDialog extends Dialog implements android.view.View.OnClickLis
         t_icon.setImageDrawable(icon);
 
 
-
-
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_okay:
-               setRisposta(true);
+                    setRisposta(true);
                 break;
             case R.id.btn_cancel:
-                setRisposta(false);
+                    setRisposta(false);
                 break;
+
             default:
                 break;
         }

@@ -63,15 +63,15 @@ public class MainActivity extends AppCompatActivity {
 //                        });
 //
 
-                CustomDialog customDialog = new CustomDialog(MainActivity.this, "Cancella", "OK",
+                CustomDialog customDialog = new CustomDialog(MainActivity.this,
+                        "Cancella",
+                        "OK",
                         getDrawable(R.color.colorPrimaryDark1),
                         getDrawable(R.drawable.ic_baseline_done_outline_24),
                         "Success",
                         "messaggio da scrivere qui bla bla,b,,ikffnnf\nriga a capo.\nciao?");
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    customDialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.custom_dialog_background));
-                }
                 customDialog.show();
+
 
 
                 Log.i("FAB0211","getRisposta->" + customDialog.getRisposta());
@@ -83,8 +83,9 @@ public class MainActivity extends AppCompatActivity {
                 }
 
 
-            }//onClick
 
+
+            }//onClick
 
         });
 
@@ -109,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
             dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.custom_dialog_background));
         }
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        dialog.setCancelable(false); //Optional
+        dialog.setCancelable(true); //Optional
         dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation; //Setting the animations to dialog
 
         Button Okay = dialog.findViewById(R.id.btn_okay);
